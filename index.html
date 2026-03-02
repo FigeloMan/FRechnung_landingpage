@@ -283,42 +283,55 @@
       color: var(--accent); border: 1px solid var(--border);
     }
 
+    /* ── SCREENSHOTS ── */
+    .step-screenshot {
+      margin-top: 16px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 4px 4px 0 var(--border);
+    }
+    .step-screenshot img {
+      width: 100%;
+      display: block;
+    }
 
-
-    /* ── DONATE ── */
-    .donate {
+    /* ── IMPRESSUM ── */
+    .impressum {
       padding: 90px 0;
       border-top: 1px solid var(--border);
-      text-align: center;
     }
-    .donate-box {
-      max-width: 540px; margin: 0 auto;
-      background: var(--ink2);
-      border-radius: 10px; padding: 48px 40px;
-      position: relative; overflow: hidden;
+    .impressum-box {
+      max-width: 640px;
+      background: var(--paper2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px 44px;
+      position: relative;
     }
-    .donate-box::after {
-      content: '€';
-      position: absolute; right: -10px; bottom: -30px;
-      font-family: var(--mono); font-size: 160px; font-weight: 800;
-      color: rgba(255,255,255,0.03); pointer-events: none; line-height: 1;
+    .impressum-box::before {
+      content: '';
+      position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+      background: var(--accent);
+      border-radius: 8px 0 0 8px;
     }
-    .donate-title {
-      font-family: var(--mono); font-weight: 800; font-size: 24px;
-      color: var(--paper); margin-bottom: 14px;
+    .impressum-section {
+      margin-bottom: 28px;
     }
-    .donate-text { font-size: 15px; color: rgba(245,240,232,0.6); margin-bottom: 30px; }
-    .btn-paypal {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: #003087; color: #fff;
-      font-family: var(--mono); font-weight: 700; font-size: 14px;
-      letter-spacing: 0.05em;
-      padding: 14px 32px; border-radius: 5px;
+    .impressum-section:last-child { margin-bottom: 0; }
+    .impressum-section-title {
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .impressum-section p {
+      font-size: 15px; color: #4a5568; line-height: 1.7;
+    }
+    .impressum-section a {
+      color: var(--accent); font-family: var(--mono); font-size: 13px;
       text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 4px 20px rgba(0,48,135,0.4);
     }
-    .btn-paypal:hover { background: #009cde; transform: translateY(-2px); }
+    .impressum-section a:hover { text-decoration: underline; }
 
     /* ── FOOTER ── */
     footer {
@@ -343,19 +356,6 @@
     .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
     .footer-mit { font-family: var(--mono); font-size: 11px; color: var(--muted); }
-
-    /* ── SCREENSHOTS ── */
-    .step-screenshot {
-      margin-top: 16px;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 4px 4px 0 var(--border);
-    }
-    .step-screenshot img {
-      width: 100%;
-      display: block;
-    }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
@@ -388,8 +388,7 @@
       <a href="#story">Über uns</a>
       <a href="#features">Features</a>
       <a href="#anleitung">Anleitung</a>
-      
-      <a href="#donate">Unterstützen</a>
+      <a href="#impressum">Impressum</a>
       <a href="https://github.com/FigeloMan/FRechnung.git" target="_blank" class="nav-cta">GitHub ↗</a>
     </div>
   </div>
@@ -599,7 +598,6 @@
   </div>
 </section>
 
-
 <!-- ── SMARTSCREEN ── -->
 <section style="background:var(--paper-dark); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:40px 0;">
   <div class="wrap">
@@ -620,22 +618,43 @@
   </div>
 </section>
 
-<!-- ── DONATE ── -->
-<section class="donate" id="donate">
+<!-- ── IMPRESSUM ── -->
+<section class="impressum" id="impressum">
   <div class="wrap">
-    <div class="donate-box">
-      <div class="donate-title">Das Projekt unterstützen</div>
-      <p class="donate-text">
-        FRechnung ist und bleibt kostenlos und Open Source.
-        Wer die Arbeit dahinter würdigen möchte — jeder Betrag hilft,
-        das Projekt weiterzuentwickeln. Danke! 🙏
-      </p>
-      <a href="https://paypal.me/FRechnung" target="_blank" class="btn-paypal">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 2.79A.859.859 0 0 1 5.79 2h7.52c2.6 0 4.502.703 5.65 2.088.534.646.876 1.36 1.016 2.124.146.795.096 1.712-.148 2.77-.663 2.84-2.327 4.664-4.942 5.42-1.016.292-2.145.44-3.356.44H9.984l-.908 6.495zm7.718-13.42c-.15-.02-.306-.03-.467-.03H9.984l-1.308 9.34h1.65c1.046 0 1.957-.132 2.71-.393 1.665-.575 2.673-1.82 3.093-3.808.228-1.07.218-1.942-.03-2.587-.264-.688-.84-1.182-1.305-1.52z"/>
-        </svg>
-        Jetzt via PayPal spenden
-      </a>
+    <div class="section-header" style="text-align:left; margin-bottom:36px;">
+      <div class="story-label">// Rechtliches</div>
+      <h2 style="margin-top:8px">Impressum</h2>
+    </div>
+    <div class="impressum-box">
+      <div class="impressum-section">
+        <div class="impressum-section-title">Angaben gemäß § 5 TMG</div>
+        <p>
+          Waldemar Friesen<br/>
+          Privatperson / Entwickler
+        </p>
+      </div>
+      <div class="impressum-section">
+        <div class="impressum-section-title">Kontakt</div>
+        <p>
+          E-Mail: <a href="mailto:waldemarfriesen3@gmail.com">waldemarfriesen3@gmail.com</a>
+        </p>
+      </div>
+      <div class="impressum-section">
+        <div class="impressum-section-title">Haftungsausschluss</div>
+        <p>
+          FRechnung ist ein privates Open-Source-Projekt und wird ohne Gewähr bereitgestellt.
+          Für die Richtigkeit, Vollständigkeit oder Aktualität der erzeugten Rechnungen
+          übernehme ich keine Haftung. Die Nutzung erfolgt auf eigene Verantwortung.
+          Steuerliche oder rechtliche Fragen sind stets mit einem Fachkundigen zu klären.
+        </p>
+      </div>
+      <div class="impressum-section">
+        <div class="impressum-section-title">Urheberrecht</div>
+        <p>
+          Der Quellcode steht unter der MIT-Lizenz und ist frei verwendbar.
+          Details auf <a href="https://github.com/FigeloMan/FRechnung.git" target="_blank">GitHub</a>.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -649,7 +668,7 @@
     </div>
     <div class="footer-links">
       <a href="https://github.com/FigeloMan/FRechnung.git" target="_blank">GitHub</a>
-      <a href="https://paypal.me/FRechnung" target="_blank">Spenden</a>
+      <a href="#impressum">Impressum</a>
       <a href="#anleitung">Anleitung</a>
     </div>
     <div class="footer-mit">Gebaut mit ❤️ für Freiberufler & kleine Unternehmen</div>
